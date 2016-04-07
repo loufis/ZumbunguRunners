@@ -11,6 +11,19 @@ public class Player : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetButtonDown ("Check")) {
+			//if (!NetworkServer.active)
+			Cmd_test ("WHEEEEEEEEE");
+		}
+	}
+
+	[Command]
+	public void Cmd_test(string x) {
+		Debug.Log (x);
+	}
+
+	[ClientRpc]
+	public void Rpc_test(string x) {
+		Debug.Log(x);
 	}
 }

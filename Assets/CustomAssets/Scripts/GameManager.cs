@@ -4,19 +4,12 @@ using System.Collections;
 
 public class GameManager : NetworkManager {
 
-    private ServerBehaviour serverBehavior = null;
-    private ClientBehaviour clientBehavior = null;
-    public override void OnStartHost()
-    {
-        base.OnStartHost();
-        serverBehavior = new ServerBehaviour();
-    }
 
-    public override void OnStartClient(NetworkClient client)
-    {
-        base.OnStartClient(client);
-        clientBehavior = new ClientBehaviour();
-    }
+
+	void Start () {
+
+	}
+
 
     public override void OnServerConnect(NetworkConnection conn)
 	{
@@ -32,8 +25,6 @@ public class GameManager : NetworkManager {
 		else {
 			if (Input.GetButtonDown ("Client"))
 				StartClient ();
-			else if (Input.GetButtonDown ("Check"))
-				print (NetworkServer.active);
 		}
 	}
 
