@@ -4,8 +4,21 @@ using System.Collections;
 
 public class GameManager : NetworkManager {
 
+    private ServerBehaviour serverBehavior = null;
+    private ClientBehaviour clientBehavior = null;
+    public override void OnStartHost()
+    {
+        base.OnStartHost();
+        serverBehavior = new ServerBehaviour();
+    }
 
-	public override void OnServerConnect(NetworkConnection conn)
+    public override void OnStartClient(NetworkClient client)
+    {
+        base.OnStartClient(client);
+        clientBehavior = new ClientBehaviour();
+    }
+
+    public override void OnServerConnect(NetworkConnection conn)
 	{
 		Debug.Log (conn.address);
 	}
@@ -20,7 +33,7 @@ public class GameManager : NetworkManager {
 			if (Input.GetButtonDown ("Client"))
 				StartClient ();
 			else if (Input.GetButtonDown ("Check"))
-				print (Network.isServer);
+				print (NetworkServer.active);
 		}
 	}
 
