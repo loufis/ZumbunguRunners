@@ -13,7 +13,7 @@ public class Player : NetworkBehaviour {
 	void Update () {
 		if (Input.GetButtonDown ("Check")) {
 			//if (!NetworkServer.active)
-			Cmd_test ("WHEEEEEEEEE");
+			Rpc_test ("WHEEEEEEEEE");
 		}
 	}
 
