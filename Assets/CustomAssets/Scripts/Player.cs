@@ -4,26 +4,29 @@ using System.Collections;
 
 public class Player : NetworkBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () {
-	
+	    
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Check")) {
-			//if (!NetworkServer.active)
-			Rpc_test ("WHEEEEEEEEE");
-		}
+
 	}
 
-	[Command]
-	public void Cmd_test(string x) {
-		Debug.Log (x);
-	}
+    /*
+    [Command]
+    public void CmdAnimate(string animation, float Speed, bool Ground, bool Crouch, float vSpeed)
+    {
 
-	[ClientRpc]
-	public void Rpc_test(string x) {
-		Debug.Log(x);
-	}
+    }
+
+    [ClientRpc]
+    public void RpcAnimate(string animation, float Speed, bool Ground, bool Crouch, float vSpeed)
+    {
+
+    }
+    */
 }

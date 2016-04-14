@@ -1,9 +1,10 @@
-using System;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
-    public class PlatformerCharacter2D : MonoBehaviour
+    public class PlatformerCharacter2D : NetworkBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
@@ -111,4 +112,5 @@ namespace UnityStandardAssets._2D
             transform.localScale = theScale;
         }
     }
+
 }
