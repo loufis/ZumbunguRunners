@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
@@ -33,6 +32,8 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
+            if (!isLocalPlayer) return;
+
             m_Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -80,13 +81,13 @@ namespace UnityStandardAssets._2D
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
                 {
-                    // ... flip the player.
+                    // ... Flip the player.
                     Flip();
                 }
                     // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && m_FacingRight)
                 {
-                    // ... flip the player.
+                    // ... Flip the player.
                     Flip();
                 }
             }
@@ -99,7 +100,6 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
         }
-
 
         private void Flip()
         {

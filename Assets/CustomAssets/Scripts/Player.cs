@@ -4,17 +4,31 @@ using System.Collections;
 
 public class Player : NetworkBehaviour {
 
+    public GameObject GMPrefab;
+    private GameObject GM = null;
+
+    [Command]
+    void CmdSpawn()
+    {
+        if (GM == null)
+        {
+            GM = Instantiate(GMPrefab) as GameObject;
+            NetworkServer.SpawnWithClientAuthority(GM, base.connectionToClient);
+        }
+    }
 
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        //Debug.Log("PlayerSpawned");
+        CmdSpawn();
+    }
 
-	}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     /*
     [Command]
