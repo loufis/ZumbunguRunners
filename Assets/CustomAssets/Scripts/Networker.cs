@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Networker : NetworkManager {
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,11 +27,7 @@ public class Networker : NetworkManager {
 		}
 	}
 
-	[Command]
-	void CmdSpawn()
-	{
-		var go = (GameObject)Instantiate(otherPrefab, transform.position + new Vector3(0,1,0), Quaternion.identity);
-		NetworkServer.SpawnWithClientAuthority(go, base.connectionToClient);
-	}
+
+
 
 }
